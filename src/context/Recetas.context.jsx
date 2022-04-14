@@ -5,7 +5,7 @@ import clienteAxios from '../config/clienteAxios.config';
 import authorizationBearer from '../config/authorization.config';
 export const RecetasContext = createContext();
 const RecetasProvider = (props) => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [recetas, setRecetas] = useState([]);
   const [receta, setReceta] = useState({});
   const { mostrarAlerta } = useAlerta();
@@ -37,6 +37,7 @@ const RecetasProvider = (props) => {
     }
   };
   const obtenerReceta = async (id) => {
+    setIsLoading(true);
     const config = authorizationBearer();
     try {
       const { data } = await clienteAxios(`/recetas/${id}`, config);

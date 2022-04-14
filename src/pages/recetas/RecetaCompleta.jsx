@@ -21,7 +21,6 @@ const RecetaCompleta = () => {
     socketCambiarEstado,
   } = useTareas();
   const { eliminarColaborador } = useColaboradores();
-  const { nombre, ingredientes, elaboracion } = receta;
 
   useEffect(() => {
     obtenerReceta(id);
@@ -75,7 +74,7 @@ const RecetaCompleta = () => {
       {/* RECETAS ************************/}
       <div className="flex justify-between items-center my-10 py-10">
         <h2 className=" text-5xl text-yellow-600 uppercase font-bold">
-          {nombre}
+          {receta.nombre}
         </h2>
         {admin && (
           <div className="flex gap-5">
@@ -120,7 +119,7 @@ const RecetaCompleta = () => {
         <div className="flex mb-5">
           <p className="md:w-2/6 bg-gray-800 mr-6 p-5 rounded">Ingredientes</p>
           <div className="md:w-4/6 flex-1 bg-gray-800 p-5 rounded">
-            {ingredientes.map(({ cantidad, ingrediente, _id }) => (
+            {receta.ingredientes.map(({ cantidad, ingrediente, _id }) => (
               <p key={_id}>
                 {cantidad} {ingrediente}
               </p>
@@ -130,7 +129,7 @@ const RecetaCompleta = () => {
         <div className="flex">
           <p className="md:w-2/6 bg-gray-800 mr-6 p-5 rounded">Elaboracion</p>
           <p className="md:w-4/6 flex-1 bg-gray-800 p-5 rounded">
-            {elaboracion}
+            {receta.elaboracion}
           </p>
         </div>
       </div>
