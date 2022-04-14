@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --colorPrimario: rgb(70, 36, 76);
+  --colorSecundario: rgb(113, 43, 117);
+  --colorTercero: rgb(199, 75, 80);
+  --colorCuarto: rgb(212, 155, 84);
+  --fuentePrincipal: 'Merriweather', serif;
+}
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--fuentePrincipal);
+  font-size: 1.6rem;
+  background-color: #222;
+  color: var(--colorTercero);
+}
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  max-width: 100%;
+}
+[class$='__contenedor'] {
+  width: min(90%, 120rem);
+  margin: 5rem auto;
+}
