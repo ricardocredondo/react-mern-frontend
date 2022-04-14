@@ -11,9 +11,11 @@ const RecetasProvider = (props) => {
   const { mostrarAlerta } = useAlerta();
   const navigate = useNavigate();
   const obtenerRecetas = async () => {
+    setIsLoading(true);
     const config = authorizationBearer();
     const { data } = await clienteAxios('/recetas', config);
     setRecetas(data);
+    setIsLoading(false);
   };
   const crearReceta = async (nombre, ingredientes, elaboracion) => {
     setIsLoading(true);

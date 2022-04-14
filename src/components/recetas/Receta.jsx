@@ -1,9 +1,6 @@
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth.hooks';
-import useRecetas from '../../hooks/useRecetas.hooks';
 const Receta = ({ receta }) => {
-  const { setReceta } = useRecetas();
-  setReceta(receta);
   const { auth } = useAuth();
   return (
     <>

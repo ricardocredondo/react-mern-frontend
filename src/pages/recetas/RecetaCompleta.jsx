@@ -20,6 +20,9 @@ const RecetaCompleta = () => {
     socketEditarTareas,
     socketCambiarEstado,
   } = useTareas();
+  useEffect(() => {
+    obtenerReceta(id);
+  }, []);
   const { eliminarColaborador } = useColaboradores();
 
   useEffect(() => {
