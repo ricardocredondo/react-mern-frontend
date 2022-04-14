@@ -4,12 +4,11 @@ import Receta from '../../components/recetas/Receta';
 import useRecetas from '../../hooks/useRecetas.hooks';
 
 const Recetas = () => {
-  const { recetas, obtenerRecetas } = useRecetas();
-  console.log({ RECETAS: recetas });
+  const { isLoading, recetas, obtenerRecetas } = useRecetas();
   useEffect(() => {
     obtenerRecetas();
   }, []);
-
+  if (isLoading) return <p>Leyendo datos...</p>;
   return (
     <div className="my-10">
       <h2 className="text-center my-10 py-5 text-5xl uppercase">

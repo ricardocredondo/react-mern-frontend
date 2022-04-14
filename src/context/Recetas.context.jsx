@@ -16,6 +16,7 @@ const RecetasProvider = (props) => {
     setRecetas(data);
   };
   const crearReceta = async (nombre, ingredientes, elaboracion) => {
+    setIsLoading(true);
     const config = authorizationBearer();
     try {
       const { data } = await clienteAxios.post(
@@ -29,6 +30,7 @@ const RecetasProvider = (props) => {
         error: false,
       });
       setTimeout(() => navigate('/recetas'), 2000);
+      setIsLoading(false);
     } catch (error) {
       mostrarAlerta({
         msg: error.response.data.msg,
