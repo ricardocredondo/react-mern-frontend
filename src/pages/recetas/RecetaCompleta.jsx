@@ -10,7 +10,7 @@ const RecetaCompleta = () => {
   const admin = useAdmin();
   const navigate = useNavigate();
   const { id } = useParams();
-  const { isLoading, receta, obtenerReceta, eliminarReceta } = useRecetas();
+  const { isLoading, receta, eliminarReceta } = useRecetas();
   const {
     setTarea,
     eliminarTarea,
@@ -22,9 +22,6 @@ const RecetaCompleta = () => {
   } = useTareas();
   const { eliminarColaborador } = useColaboradores();
 
-  useEffect(() => {
-    obtenerReceta(id);
-  }, []);
   useEffect(() => {
     socket = io(import.meta.env.VITE_BACKEND_URL);
     socket.emit('ABRIR RECETA', id);
